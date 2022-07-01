@@ -46,6 +46,6 @@ Layers:
 ### To run project
 - You should have installed version of Apache Tomcat, MySQL, Git, Maven, Java
 - Clone the project from GitHub
-- Create new user and database for working the project with database
 - Initialise database. Use for that src/main/resources/init_db.sql
-- Configure database connection. Use for that src/main/java/taxi/util/ConnectionUtil.java
+- Configure database connection. Use for that environment variables: 
+DATABASE_HOST, DATABASE_NAME, DATABASE_USERNAME, DATABASE_PASSWORD 
