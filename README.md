@@ -22,7 +22,7 @@ Project has next features:
 - Display My Current Cars
 
 ### Run application in your browser
-Follow the [link](https://friendly-mountie-87634.herokuapp.com/)
+Follow the [link](https://gdp-taxi-service.herokuapp.com)
 
 ### Project represents N-layer architecture
 Layers:
