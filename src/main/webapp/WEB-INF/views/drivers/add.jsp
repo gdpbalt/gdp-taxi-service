@@ -1,40 +1,39 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
-<html>
-<head>
-    <title>All drivers</title>
-</head>
-<body>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Login</th>
-        <th>Password</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="license_number" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="login" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="password" form="driver" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="driver">
-        </td>
-    </tr>
-</table>
-</body>
-</html>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:genericpage>
+    <jsp:attribute name="title">
+        add a driver
+    </jsp:attribute>
+
+    <jsp:attribute name="header">
+        Add a new driver to list
+    </jsp:attribute>
+
+    <jsp:body>
+        <form method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="license_number" class="form-label">License number</label>
+                <input type="text" class="form-control" id="license_number" name="license_number"
+                       placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input type="text" class="form-control" id="login" name="login" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="password" name="password"
+                       placeholder="">
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-success" value="Add">
+                <input type="submit" class="btn btn-danger"
+                       onclick="window.history.go(-1); return false;" value="Cancel">
+            </div>
+        </form>
+    </jsp:body>
+</t:genericpage>

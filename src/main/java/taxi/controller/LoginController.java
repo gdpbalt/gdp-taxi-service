@@ -2,6 +2,7 @@ package taxi.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +12,11 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
+@WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private static final String TEMPLATE_JSP_FILE = "/WEB-INF/views/login.jsp";
-    private static final String AFTER_AUTHENTICATION_LOCATION = "/index";
+    private static final String AFTER_AUTHENTICATION_LOCATION = "/";
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
