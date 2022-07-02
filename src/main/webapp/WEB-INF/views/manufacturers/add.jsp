@@ -1,32 +1,29 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
-<html>
-<head>
-    <title>Manufacturers</title>
-</head>
-<body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add manufacturer:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Name</th>
-        <th>Country</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="text" name="country" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="manufacturer" required>
-        </td>
-    </tr>
-</table>
-</body>
-</html>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:genericpage>
+    <jsp:attribute name="title">
+        add a manufacturer
+    </jsp:attribute>
+
+    <jsp:attribute name="header">
+        Add a new manufacturer to list
+    </jsp:attribute>
+
+    <jsp:body>
+        <form method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="">
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-success" value="Add">
+                <input type="submit" class="btn btn-danger"
+                       onclick="window.history.go(-1); return false;" value="Cancel">
+            </div>
+        </form>
+    </jsp:body>
+</t:genericpage>

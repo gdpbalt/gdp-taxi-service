@@ -8,18 +8,12 @@ and divide code into different levels.
 Project has next features:
 - Authentication form
 - Registration form
-- Display All Drivers
-- Display All Cars
-- Display All Manufacturers
-- Create new Driver
-- Create new Car
-- Create new Manufacturer
-- Add Driver to Car
-- Delete Driver from Car
-- Delete Driver
-- Delete Car
-- Delete Manufacturer
-- Display My Current Cars
+- Cars (show all / add / delete)
+- Drivers (show all / add / delete)
+- Manufacturers (show all / add / delete)
+- Add driver to car
+- Delete driver from car
+- Display cars for logged driver
 
 ### Run application in your browser
 Follow the [link](https://gdp-taxi-service.herokuapp.com)
