@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
@@ -14,6 +16,7 @@ import taxi.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
+    private static final Logger logger = LogManager.getLogger(LoginController.class);
     private static final Injector injector = Injector.getInstance("taxi");
     private static final String TEMPLATE_JSP_FILE = "/WEB-INF/views/login.jsp";
     private static final String AFTER_AUTHENTICATION_LOCATION = "/";
@@ -35,9 +38,11 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(userName, password);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", driver.getId());
+            logger.info("Authentication successful. Use login={}", userName);
             resp.sendRedirect(req.getContextPath() + AFTER_AUTHENTICATION_LOCATION);
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
+            logger.warn("Authentication error. Use login={}", userName, e);
             req.getRequestDispatcher(TEMPLATE_JSP_FILE).forward(req, resp);
         }
     }
